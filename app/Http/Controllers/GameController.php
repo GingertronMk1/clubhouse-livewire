@@ -18,7 +18,7 @@ class GameController extends Controller
         return view(
             'game.index',
             [
-                'games' => Game::all()
+                'games' => Game::all(),
             ]
         );
     }
@@ -36,10 +36,7 @@ class GameController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreGameRequest $request): Responsable|Response
-    {
-        //
-    }
+    public function store(StoreGameRequest $request): Responsable|Response {}
 
     /**
      * Display the specified resource.
@@ -49,9 +46,9 @@ class GameController extends Controller
         return view(
             'game.show',
             [
-                'game' => $game
+                'game' => $game,
             ]
-        )
+        );
     }
 
     /**
@@ -62,24 +59,18 @@ class GameController extends Controller
         return view(
             'game.edit',
             [
-                'game' => $game
+                'game' => $game,
             ]
-        )
+        );
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateGameRequest $request, Game $game): Responsable|Response
-    {
-        //
-    }
+    public function update(UpdateGameRequest $request, Game $game): Responsable|Response {}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Game $game): Responsable|Response
-    {
-        //
-    }
+    public function destroy(Game $game): Responsable|Response {}
 }

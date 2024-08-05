@@ -18,7 +18,7 @@ class CompetitionController extends Controller
         return view(
             'competition.index',
             [
-                'competitions' => Competition::all()
+                'competitions' => Competition::all(),
             ]
         );
     }
@@ -36,10 +36,7 @@ class CompetitionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCompetitionRequest $request): Responsable|Response
-    {
-        //
-    }
+    public function store(StoreCompetitionRequest $request): Responsable|Response {}
 
     /**
      * Display the specified resource.
@@ -49,9 +46,9 @@ class CompetitionController extends Controller
         return view(
             'competition.show',
             [
-                'competition' => $competition
+                'competition' => $competition,
             ]
-        )
+        );
     }
 
     /**
@@ -62,24 +59,18 @@ class CompetitionController extends Controller
         return view(
             'competition.edit',
             [
-                'competition' => $competition
+                'competition' => $competition,
             ]
-        )
+        );
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCompetitionRequest $request, Competition $competition): Responsable|Response
-    {
-        //
-    }
+    public function update(UpdateCompetitionRequest $request, Competition $competition): Responsable|Response {}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Competition $competition): Responsable|Response
-    {
-        //
-    }
+    public function destroy(Competition $competition): Responsable|Response {}
 }

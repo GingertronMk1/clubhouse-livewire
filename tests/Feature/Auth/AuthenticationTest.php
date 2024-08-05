@@ -7,54 +7,64 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Volt\Volt;
 use Tests\TestCase;
 
+/**
+ * @internal
+ *
+ * @coversNothing
+ */
 class AuthenticationTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_login_screen_can_be_rendered(): void
+    public function testLoginScreenCanBeRendered(): void
     {
         $response = $this->get('/login');
 
         $response
             ->assertOk()
-            ->assertSeeVolt('pages.auth.login');
+            ->assertSeeVolt('pages.auth.login')
+        ;
     }
 
-    public function test_users_can_authenticate_using_the_login_screen(): void
+    public function testUsersCanAuthenticateUsingTheLoginScreen(): void
     {
         $user = User::factory()->create();
 
         $component = Volt::test('pages.auth.login')
             ->set('form.email', $user->email)
-            ->set('form.password', 'password');
+            ->set('form.password', 'password')
+        ;
 
         $component->call('login');
 
         $component
             ->assertHasNoErrors()
-            ->assertRedirect(route('dashboard', absolute: false));
+            ->assertRedirect(route('dashboard', absolute: false))
+        ;
 
         $this->assertAuthenticated();
     }
 
-    public function test_users_can_not_authenticate_with_invalid_password(): void
+    public function testUsersCanNotAuthenticateWithInvalidPassword(): void
     {
         $user = User::factory()->create();
 
         $component = Volt::test('pages.auth.login')
             ->set('form.email', $user->email)
-            ->set('form.password', 'wrong-password');
+            ->set('form.password', 'wrong-password')
+        ;
 
         $component->call('login');
 
         $component
             ->assertHasErrors()
-            ->assertNoRedirect();
+            ->assertNoRedirect()
+        ;
 
         $this->assertGuest();
     }
 
-    public function test_navigation_menu_can_be_rendered(): void
+    public function testNavigationMenuCanBeRendered(): void
     {
         $user = User::factory()->create();
 
@@ -64,10 +74,11 @@ class AuthenticationTest extends TestCase
 
         $response
             ->assertOk()
-            ->assertSeeVolt('layout.navigation');
+            ->assertSeeVolt('layout.navigation')
+        ;
     }
 
-    public function test_users_can_logout(): void
+    public function testUsersCanLogout(): void
     {
         $user = User::factory()->create();
 
@@ -79,7 +90,8 @@ class AuthenticationTest extends TestCase
 
         $component
             ->assertHasNoErrors()
-            ->assertRedirect('/');
+            ->assertRedirect('/')
+        ;
 
         $this->assertGuest();
     }

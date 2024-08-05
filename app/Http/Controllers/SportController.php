@@ -18,7 +18,7 @@ class SportController extends Controller
         return view(
             'sport.index',
             [
-                'sports' => Sport::all()
+                'sports' => Sport::all(),
             ]
         );
     }
@@ -36,10 +36,7 @@ class SportController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSportRequest $request): Responsable|Response
-    {
-        //
-    }
+    public function store(StoreSportRequest $request): Responsable|Response {}
 
     /**
      * Display the specified resource.
@@ -49,9 +46,9 @@ class SportController extends Controller
         return view(
             'sport.show',
             [
-                'sport' => $sport
+                'sport' => $sport,
             ]
-        )
+        );
     }
 
     /**
@@ -62,24 +59,18 @@ class SportController extends Controller
         return view(
             'sport.edit',
             [
-                'sport' => $sport
+                'sport' => $sport,
             ]
-        )
+        );
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSportRequest $request, Sport $sport): Responsable|Response
-    {
-        //
-    }
+    public function update(UpdateSportRequest $request, Sport $sport): Responsable|Response {}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Sport $sport): Responsable|Response
-    {
-        //
-    }
+    public function destroy(Sport $sport): Responsable|Response {}
 }

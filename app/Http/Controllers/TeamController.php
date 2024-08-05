@@ -18,7 +18,7 @@ class TeamController extends Controller
         return view(
             'team.index',
             [
-                'teams' => Team::all()
+                'teams' => Team::all(),
             ]
         );
     }
@@ -36,10 +36,7 @@ class TeamController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTeamRequest $request): Responsable|Response
-    {
-        //
-    }
+    public function store(StoreTeamRequest $request): Responsable|Response {}
 
     /**
      * Display the specified resource.
@@ -49,9 +46,9 @@ class TeamController extends Controller
         return view(
             'team.show',
             [
-                'team' => $team
+                'team' => $team,
             ]
-        )
+        );
     }
 
     /**
@@ -62,24 +59,18 @@ class TeamController extends Controller
         return view(
             'team.edit',
             [
-                'team' => $team
+                'team' => $team,
             ]
-        )
+        );
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTeamRequest $request, Team $team): Responsable|Response
-    {
-        //
-    }
+    public function update(UpdateTeamRequest $request, Team $team): Responsable|Response {}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Team $team): Responsable|Response
-    {
-        //
-    }
+    public function destroy(Team $team): Responsable|Response {}
 }

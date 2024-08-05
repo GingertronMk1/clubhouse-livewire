@@ -4,8 +4,7 @@ use Illuminate\Support\Facades\Password;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
-new #[Layout('layouts.guest')] class extends Component
-{
+new #[Layout('layouts.guest')] class extends Component {
     public string $email = '';
 
     /**
@@ -24,7 +23,7 @@ new #[Layout('layouts.guest')] class extends Component
             $this->only('email')
         );
 
-        if ($status != Password::RESET_LINK_SENT) {
+        if (Password::RESET_LINK_SENT != $status) {
             $this->addError('email', __($status));
 
             return;

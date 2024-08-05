@@ -13,12 +13,12 @@ class PersonController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): Responsable|Response
+    public function index(): \Illuminate\Contracts\View\View
     {
         return view(
             'person.index',
             [
-                'persons' => Person::all()
+                'persons' => Person::all(),
             ]
         );
     }
@@ -36,10 +36,7 @@ class PersonController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePersonRequest $request): Responsable|Response
-    {
-        //
-    }
+    public function store(StorePersonRequest $request): Responsable|Response {}
 
     /**
      * Display the specified resource.
@@ -49,9 +46,9 @@ class PersonController extends Controller
         return view(
             'person.show',
             [
-                'person' => $person
+                'person' => $person,
             ]
-        )
+        );
     }
 
     /**
@@ -62,24 +59,18 @@ class PersonController extends Controller
         return view(
             'person.edit',
             [
-                'person' => $person
+                'person' => $person,
             ]
-        )
+        );
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePersonRequest $request, Person $person): Responsable|Response
-    {
-        //
-    }
+    public function update(UpdatePersonRequest $request, Person $person): Responsable|Response {}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Person $person): Responsable|Response
-    {
-        //
-    }
+    public function destroy(Person $person): Responsable|Response {}
 }

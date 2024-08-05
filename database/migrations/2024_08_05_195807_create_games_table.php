@@ -4,10 +4,11 @@ use App\Models\Competition;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Team;
 
-return new class extends Migration
-{
+return new class () extends Migration {
     private const TEAMS_TABLE = 'teams';
+
     /**
      * Run the migrations.
      */
@@ -20,8 +21,8 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->text('summary')->nullable();
             $table->foreignIdFor(Competition::class)->constrained();
-            $table->foreignIdFor(\App\Models\Team::class, 'team_1_id')->constrained(self::TEAMS_TABLE);
-            $table->foreignIdFor(\App\Models\Team::class, 'team_2_id')->constrained(self::TEAMS_TABLE);
+            $table->foreignIdFor(Team::class, 'team_1_id')->constrained(self::TEAMS_TABLE);
+            $table->foreignIdFor(Team::class, 'team_2_id')->constrained(self::TEAMS_TABLE);
             $table->timestamps();
             $table->softDeletes();
         });

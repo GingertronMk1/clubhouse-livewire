@@ -56,4 +56,4 @@ class DefaultLogin
     }
 }
 
-return new DefaultLogin;
+return new DefaultLogin();

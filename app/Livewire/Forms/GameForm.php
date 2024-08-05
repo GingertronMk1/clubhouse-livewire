@@ -2,10 +2,6 @@
 
 namespace App\Livewire\Forms;
 
-use Livewire\Attributes\Validate;
 use Livewire\Form;
 
-class GameForm extends Form
-{
-    //
-}
+class GameForm extends Form {}

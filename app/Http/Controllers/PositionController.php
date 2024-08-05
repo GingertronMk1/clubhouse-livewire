@@ -18,7 +18,7 @@ class PositionController extends Controller
         return view(
             'position.index',
             [
-                'positions' => Position::all()
+                'positions' => Position::all(),
             ]
         );
     }
@@ -36,10 +36,7 @@ class PositionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePositionRequest $request): Responsable|Response
-    {
-        //
-    }
+    public function store(StorePositionRequest $request): Responsable|Response {}
 
     /**
      * Display the specified resource.
@@ -49,9 +46,9 @@ class PositionController extends Controller
         return view(
             'position.show',
             [
-                'position' => $position
+                'position' => $position,
             ]
-        )
+        );
     }
 
     /**
@@ -62,24 +59,18 @@ class PositionController extends Controller
         return view(
             'position.edit',
             [
-                'position' => $position
+                'position' => $position,
             ]
-        )
+        );
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePositionRequest $request, Position $position): Responsable|Response
-    {
-        //
-    }
+    public function update(UpdatePositionRequest $request, Position $position): Responsable|Response {}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Position $position): Responsable|Response
-    {
-        //
-    }
+    public function destroy(Position $position): Responsable|Response {}
 }
