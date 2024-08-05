@@ -46,25 +46,21 @@ class MakeEntity extends Command
                 ]
             );
 
+            $viewDir = $this->inflector->tableize($entityName);
+            $viewDir = str_replace('_', '-', $viewDir);
             foreach ($this->getCrudOperations() as $operation) {
-                $dirName = $this->folderise($entityName);
                 $this->call(
                     ViewMakeCommand::class,
                     [
-                        'name' => $dirName . '/' . $operation,
+                        'name' => "{$viewDir}/{$operation}",
                     ]
                 );
             }
         }
 
-        return Command::SUCCESS;
+        return self::SUCCESS;
     }
 
-    private function folderise(string $initial): string
-    {
-        $str = $this->inflector->tableize($initial);
-        return str_replace('_', '-', $str);
-    }
 
     private function getCrudOperations(): array
     {
