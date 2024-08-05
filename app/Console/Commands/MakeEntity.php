@@ -78,7 +78,6 @@ class MakeEntity extends Command
             if (!$entityKey === array_key_last($entityNames)) {
                 $this->output->info("Sleeping for a second to make migrations order right");
                 sleep(1);
-
             }
         }
 
