@@ -39,7 +39,7 @@ class MakeEntity extends Command
     public function handle(): int
     {
         $entityNames = $this->argument('entityName');
-        foreach ($entityNames as $entityName) {
+        foreach ($entityNames as $entityKey => $entityName) {
             $this->call(
                 ModelMakeCommand::class,
                 [
@@ -73,6 +73,13 @@ class MakeEntity extends Command
                     'name' => "{$entityName}Form",
                 ]
             );
+
+
+            if (!$entityKey === array_key_last($entityNames)) {
+                $this->output->info("Sleeping for a second to make migrations order right");
+                sleep(1);
+
+            }
         }
 
         return self::SUCCESS;
