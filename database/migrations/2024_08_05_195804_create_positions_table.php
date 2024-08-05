@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('positions', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->integer('preview_x');
+            $table->integer('preview_y');
+            $table->integer('sort_order');
+            $table->integer('default_number');
+            $table->foreignIdFor(\App\Models\Sport::class)->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
