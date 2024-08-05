@@ -7,6 +7,8 @@ use Doctrine\Inflector\InflectorFactory;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Console\ModelMakeCommand;
 use Illuminate\Foundation\Console\ViewMakeCommand;
+use Livewire\Features\SupportConsoleCommands\Commands\FormCommand;
+use Livewire\Features\SupportConsoleCommands\Commands\MakeLivewireCommand;
 
 class MakeEntity extends Command
 {
@@ -56,6 +58,21 @@ class MakeEntity extends Command
                     ]
                 );
             }
+
+            $this->call(
+                MakeLivewireCommand::class,
+                [
+                    'name' => "CreateEdit{$entityName}",
+                    '--test' => true,
+                ]
+            );
+
+            $this->call(
+                FormCommand::class,
+                [
+                    'name' => "{$entityName}Form",
+                ]
+            );
         }
 
         return self::SUCCESS;
