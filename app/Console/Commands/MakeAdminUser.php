@@ -29,10 +29,11 @@ class MakeAdminUser extends Command
         $user = User::make([
             'name' => 'ClubHouse Admin',
             'email' => 'admin@clubhouse.local',
-            'password' => '1234'
+            'password' => '1234',
         ]);
         $user->id = '01912491-cea1-73cb-8b98-f203ed0a687f';
         $user->save();
+
         return self::SUCCESS;
     }
 }

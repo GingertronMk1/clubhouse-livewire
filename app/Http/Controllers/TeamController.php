@@ -5,15 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTeamRequest;
 use App\Http\Requests\UpdateTeamRequest;
 use App\Models\Team;
-use Illuminate\Contracts\Support\Responsable;
-use Illuminate\Support\Facades\Response;
+use Illuminate\View\View;
 
 class TeamController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): \Illuminate\View\View
+    public function index(): View
     {
         return view(
             'team.index',
@@ -26,7 +25,7 @@ class TeamController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): \Illuminate\View\View
+    public function create(): View
     {
         return view(
             'team.create'
@@ -36,12 +35,12 @@ class TeamController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTeamRequest $request): \Illuminate\View\View {}
+    public function store(StoreTeamRequest $request): View {}
 
     /**
      * Display the specified resource.
      */
-    public function show(Team $team): \Illuminate\View\View
+    public function show(Team $team): View
     {
         return view(
             'team.show',
@@ -54,7 +53,7 @@ class TeamController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Team $team): \Illuminate\View\View
+    public function edit(Team $team): View
     {
         return view(
             'team.edit',
@@ -67,10 +66,10 @@ class TeamController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTeamRequest $request, Team $team): \Illuminate\View\View {}
+    public function update(UpdateTeamRequest $request, Team $team): View {}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Team $team): \Illuminate\View\View {}
+    public function destroy(Team $team): View {}
 }

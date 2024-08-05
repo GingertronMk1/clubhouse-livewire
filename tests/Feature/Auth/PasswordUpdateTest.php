@@ -53,6 +53,7 @@ class PasswordUpdateTest extends TestCase
 
         $component
             ->assertHasErrors(['current_password'])
-            ->assertNoRedirect();
+            ->assertNoRedirect()
+        ;
     }
 }

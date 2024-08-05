@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePersonRequest;
 use App\Http\Requests\UpdatePersonRequest;
 use App\Models\Person;
-use Illuminate\Contracts\Support\Responsable;
-use Illuminate\Support\Facades\Response;
+use Illuminate\View\View;
 
 class PersonController extends Controller
 {
@@ -26,7 +25,7 @@ class PersonController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): \Illuminate\View\View
+    public function create(): View
     {
         return view(
             'person.create'
@@ -36,12 +35,12 @@ class PersonController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePersonRequest $request): \Illuminate\View\View {}
+    public function store(StorePersonRequest $request): View {}
 
     /**
      * Display the specified resource.
      */
-    public function show(Person $person): \Illuminate\View\View
+    public function show(Person $person): View
     {
         return view(
             'person.show',
@@ -54,7 +53,7 @@ class PersonController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Person $person): \Illuminate\View\View
+    public function edit(Person $person): View
     {
         return view(
             'person.edit',
@@ -67,10 +66,10 @@ class PersonController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePersonRequest $request, Person $person): \Illuminate\View\View {}
+    public function update(UpdatePersonRequest $request, Person $person): View {}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Person $person): \Illuminate\View\View {}
+    public function destroy(Person $person): View {}
 }

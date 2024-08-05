@@ -5,15 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCompetitionRequest;
 use App\Http\Requests\UpdateCompetitionRequest;
 use App\Models\Competition;
-use Illuminate\Contracts\Support\Responsable;
-use Illuminate\Support\Facades\Response;
+use Illuminate\View\View;
 
 class CompetitionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): \Illuminate\View\View
+    public function index(): View
     {
         return view(
             'competition.index',
@@ -26,7 +25,7 @@ class CompetitionController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): \Illuminate\View\View
+    public function create(): View
     {
         return view(
             'competition.create'
@@ -36,12 +35,12 @@ class CompetitionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCompetitionRequest $request): \Illuminate\View\View {}
+    public function store(StoreCompetitionRequest $request): View {}
 
     /**
      * Display the specified resource.
      */
-    public function show(Competition $competition): \Illuminate\View\View
+    public function show(Competition $competition): View
     {
         return view(
             'competition.show',
@@ -54,7 +53,7 @@ class CompetitionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Competition $competition): \Illuminate\View\View
+    public function edit(Competition $competition): View
     {
         return view(
             'competition.edit',
@@ -67,10 +66,10 @@ class CompetitionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCompetitionRequest $request, Competition $competition): \Illuminate\View\View {}
+    public function update(UpdateCompetitionRequest $request, Competition $competition): View {}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Competition $competition): \Illuminate\View\View {}
+    public function destroy(Competition $competition): View {}
 }

@@ -5,15 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreGameRequest;
 use App\Http\Requests\UpdateGameRequest;
 use App\Models\Game;
-use Illuminate\Contracts\Support\Responsable;
-use Illuminate\Support\Facades\Response;
+use Illuminate\View\View;
 
 class GameController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): \Illuminate\View\View
+    public function index(): View
     {
         return view(
             'game.index',
@@ -26,7 +25,7 @@ class GameController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): \Illuminate\View\View
+    public function create(): View
     {
         return view(
             'game.create'
@@ -36,12 +35,12 @@ class GameController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreGameRequest $request): \Illuminate\View\View {}
+    public function store(StoreGameRequest $request): View {}
 
     /**
      * Display the specified resource.
      */
-    public function show(Game $game): \Illuminate\View\View
+    public function show(Game $game): View
     {
         return view(
             'game.show',
@@ -54,7 +53,7 @@ class GameController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Game $game): \Illuminate\View\View
+    public function edit(Game $game): View
     {
         return view(
             'game.edit',
@@ -67,10 +66,10 @@ class GameController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateGameRequest $request, Game $game): \Illuminate\View\View {}
+    public function update(UpdateGameRequest $request, Game $game): View {}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Game $game): \Illuminate\View\View {}
+    public function destroy(Game $game): View {}
 }

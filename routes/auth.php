@@ -33,5 +33,6 @@ Route::middleware('auth')->group(function () {
     ;
 
     Volt::route('confirm-password', 'pages.auth.confirm-password')
-        ->name('password.confirm');
+        ->name('password.confirm')
+    ;
 });

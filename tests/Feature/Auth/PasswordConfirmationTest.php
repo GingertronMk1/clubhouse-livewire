@@ -60,6 +60,7 @@ class PasswordConfirmationTest extends TestCase
 
         $component
             ->assertNoRedirect()
-            ->assertHasErrors('password');
+            ->assertHasErrors('password')
+        ;
     }
 }

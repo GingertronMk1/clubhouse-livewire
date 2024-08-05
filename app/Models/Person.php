@@ -27,12 +27,12 @@ class Person extends Model
     protected function casts()
     {
         return [
-            'dob' => 'date'
+            'dob' => 'date',
         ];
     }
 
     protected $with = [
-        'user'
+        'user',
     ];
 
     public function user(): BelongsTo

@@ -5,7 +5,8 @@ namespace App\Livewire\Forms;
 use App\Models\Person;
 use Livewire\Form;
 
-class PersonForm extends Form {
+class PersonForm extends Form
+{
     private ?Person $person;
     public string $name = '';
     public string $bio = '';

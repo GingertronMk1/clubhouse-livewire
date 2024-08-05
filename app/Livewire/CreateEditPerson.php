@@ -11,7 +11,8 @@ class CreateEditPerson extends Component
 {
     public PersonForm $form;
 
-    public function mount(?Person $person = null): void {
+    public function mount(?Person $person = null): void
+    {
         if (!is_null($person)) {
             $this->form->setPerson($person);
         }
@@ -27,7 +28,6 @@ class CreateEditPerson extends Component
     {
         return view('livewire.create-edit-person')
             ->with('users', User::all())
-            ;
-
+        ;
     }
 }
