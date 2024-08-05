@@ -13,7 +13,7 @@ class PositionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): Responsable|Response
+    public function index(): \Illuminate\View\View
     {
         return view(
             'position.index',
@@ -26,7 +26,7 @@ class PositionController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): Responsable|Response
+    public function create(): \Illuminate\View\View
     {
         return view(
             'position.create'
@@ -36,12 +36,12 @@ class PositionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePositionRequest $request): Responsable|Response {}
+    public function store(StorePositionRequest $request): \Illuminate\View\View {}
 
     /**
      * Display the specified resource.
      */
-    public function show(Position $position): Responsable|Response
+    public function show(Position $position): \Illuminate\View\View
     {
         return view(
             'position.show',
@@ -54,7 +54,7 @@ class PositionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Position $position): Responsable|Response
+    public function edit(Position $position): \Illuminate\View\View
     {
         return view(
             'position.edit',
@@ -67,10 +67,10 @@ class PositionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePositionRequest $request, Position $position): Responsable|Response {}
+    public function update(UpdatePositionRequest $request, Position $position): \Illuminate\View\View {}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Position $position): Responsable|Response {}
+    public function destroy(Position $position): \Illuminate\View\View {}
 }
