@@ -7,14 +7,15 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    private const TABLE = 'competitions';
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('competitions', function (Blueprint $table) {
+        Schema::create(self::TABLE, function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignIdFor(Competition::class, 'parent_id')->nullable()->constrained();
+            $table->foreignIdFor(Competition::class, 'parent_id')->nullable();
             $table->string('name');
             $table->text('description')->nullable();
             $table->foreignIdFor(\App\Models\Sport::class)->nullable()->constrained();
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('competitions');
+        Schema::dropIfExists(self::TABLE);
     }
 };
