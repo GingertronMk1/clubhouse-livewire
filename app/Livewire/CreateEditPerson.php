@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Livewire\Forms\PersonForm;
 use App\Models\Person;
+use App\Models\User;
 use Livewire\Component;
 
 class CreateEditPerson extends Component
@@ -19,10 +20,14 @@ class CreateEditPerson extends Component
     public function save(): void
     {
         $this->form->save();
+        $this->redirectRoute('person.index');
     }
 
     public function render()
     {
-        return view('livewire.create-edit-person');
+        return view('livewire.create-edit-person')
+            ->with('users', User::all())
+            ;
+
     }
 }
