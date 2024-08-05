@@ -18,7 +18,7 @@ class PersonController extends Controller
         return view(
             'person.index',
             [
-                'persons' => Person::all(),
+                'people' => Person::all(),
             ]
         );
     }

@@ -16,5 +16,16 @@ class Person extends Model
     /**
      * @var array<string>
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'name',
+        'bio',
+        'dob'
+    ];
+
+    protected function casts()
+    {
+        return [
+            'dob' => 'date'
+        ];
+    }
 }

@@ -2,6 +2,34 @@
 
 namespace App\Livewire\Forms;
 
+use App\Models\Person;
 use Livewire\Form;
 
-class PersonForm extends Form {}
+class PersonForm extends Form {
+    private ?Person $person;
+    public string $name = '';
+    public string $bio = '';
+    public string $dob = '';
+
+    public function setPerson(Person $person): void
+    {
+        $this->person = $person;
+        $this->name = $person->name ?? '';
+        $this->bio = $person->bio ?? '';
+        $this->dob = $person->dob?->format('Y-m-d') ?? '';
+    }
+
+    public function save(): void
+    {
+        $values = [
+            'name' => $this->name,
+            'bio' => $this->bio,
+            'dob' => strlen($this->dob) > 0 ? $this->dob : null,
+        ];
+        if (isset($this->person)) {
+            $this->person->update($values);
+        } else {
+            Person::create($values);
+        }
+    }
+}
