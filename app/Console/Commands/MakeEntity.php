@@ -60,18 +60,20 @@ class MakeEntity extends Command
                 );
             }
 
-            $this->call(
-                MakeLivewireCommand::class,
-                [
-                    'name' => "CreateEdit{$entityName}",
-                    '--test' => true,
-                ]
-            );
+            foreach (['Create', 'Edit'] as $operation) {
+                $this->call(
+                    MakeLivewireCommand::class,
+                    [
+                        'name' => "{$entityName}/{$operation}{$entityName}",
+                        '--test' => true,
+                    ]
+                );
+            }
 
             $this->call(
                 FormCommand::class,
                 [
-                    'name' => "{$entityName}Form",
+                    'name' => $entityName.'Form',
                 ]
             );
 
