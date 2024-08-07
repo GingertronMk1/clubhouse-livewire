@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreSportRequest;
 use App\Http\Requests\UpdateSportRequest;
+use App\Livewire\Sport\CreateSport;
+use App\Livewire\Sport\EditSport;
 use App\Models\Sport;
+use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Foundation\Application;
+use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 class SportController extends Controller
@@ -25,11 +30,9 @@ class SportController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): View
+    public function create(): ResponseFactory|Application|Response
     {
-        return view(
-            'sport.create'
-        );
+        return $this->renderLivewire(CreateSport::class);
     }
 
     /**
@@ -53,14 +56,9 @@ class SportController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Sport $sport): View
+    public function edit(Sport $sport): ResponseFactory|Application|Response
     {
-        return view(
-            'sport.edit',
-            [
-                'sport' => $sport,
-            ]
-        );
+        return $this->renderLivewire(EditSport::class);
     }
 
     /**

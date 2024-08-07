@@ -16,5 +16,8 @@ class Sport extends Model
     /**
      * @var array<string>
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'name',
+        'description',
+    ];
 }
