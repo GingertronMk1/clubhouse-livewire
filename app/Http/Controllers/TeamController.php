@@ -4,8 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTeamRequest;
 use App\Http\Requests\UpdateTeamRequest;
+use App\Livewire\Team\CreateTeam;
+use App\Livewire\Team\EditTeam;
 use App\Models\Team;
+use GuzzleHttp\Promise\Create;
+use Illuminate\Support\Facades\App;
 use Illuminate\View\View;
+use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Foundation\Application;
+use Illuminate\Http\Response;
 
 class TeamController extends Controller
 {
@@ -25,11 +32,9 @@ class TeamController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): View
+    public function create(): Application|Response|ResponseFactory
     {
-        return view(
-            'team.create'
-        );
+        return $this->renderLivewire(Create::class);
     }
 
     /**
@@ -53,14 +58,9 @@ class TeamController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Team $team): View
+    public function edit(Team $team): Application|Response|ResponseFactory
     {
-        return view(
-            'team.edit',
-            [
-                'team' => $team,
-            ]
-        );
+        return $this->renderLivewire(EditTeam::class);
     }
 
     /**

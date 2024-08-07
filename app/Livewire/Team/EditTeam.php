@@ -2,11 +2,30 @@
 
 namespace App\Livewire\Team;
 
+use App\Livewire\Forms\TeamForm;
+use App\Models\Team;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class EditTeam extends Component
 {
-    public function render()
+    public TeamForm $form;
+
+    public function mount(Team $team)
+    {
+        $this->form->setTeam($team);
+    }
+
+    public function save()
+    {
+        $team = $this->form->update();
+        session()->flash('status', 'Team successfully updated.');
+        $this->redirectRoute('team.edit', $team);
+    }
+
+    #[Layout('layouts.app')]
+    public function render(): View
     {
         return view('livewire.team.edit-team');
     }

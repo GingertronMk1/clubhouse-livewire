@@ -1,3 +1,6 @@
-<div>
-    {{-- Nothing in the world is as soft and yielding as water. --}}
-</div>
+<form wire:submit="save">
+    <input type="text" wire:model="form.name" />
+    <textarea wire:model="form.description"></textarea>
+    <input type="color" wire:model="form.colour">
+    <input type="submit" value="Submit">
+</form>

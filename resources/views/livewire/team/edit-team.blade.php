@@ -1,3 +1,6 @@
-<div>
-    {{-- Care about people's approval and you will be their prisoner. --}}
-</div>
+<form wire:submit="save">
+    <input type="text" wire:model="form.name" />
+    <textarea wire:model="form.description"></textarea>
+    <input type="color" wire:model="form.colour">
+    <input type="submit" value="Submit">
+</form>

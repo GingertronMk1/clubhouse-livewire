@@ -20,13 +20,20 @@ Route::view('profile', 'profile')
     ->name('profile')
 ;
 
-Route::resources([
+/**
+ * @var array<string, class-string> $resourceRoutes
+ */
+$resourceRoutes = [
     'competition' => CompetitionController::class,
     'game' => GameController::class,
     'person' => PersonController::class,
     'position' => PositionController::class,
     'sport' => SportController::class,
     'team' => TeamController::class,
-]);
+];
+
+foreach ($resourceRoutes as $route => $controller) {
+    Route::resource($route, $controller)->except(['store', 'update']);
+}
 
 require __DIR__.'/auth.php';
