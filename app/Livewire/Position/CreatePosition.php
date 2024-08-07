@@ -13,10 +13,7 @@ class CreatePosition extends Component
     public ?Sport $sport;
 
     public const MAX_PERCENT = 100;
-    public const MAX_PREVIEW_PERCENT = 90;
-    public const MIN_PREVIEW_PERCENT = 10;
-    public const SCALE_FACTOR_X = 10;
-    public const SCALE_FACTOR_Y = 7;
+    public const PREVIEW_BOUND = 5;
 
     public function mount(?Sport $sport)
     {
@@ -25,9 +22,9 @@ class CreatePosition extends Component
 
     private function boundValue(int $n): float
     {
-        // lambda(n, ((90-10)*n / 100) + 10)
-        $diff = self::MAX_PREVIEW_PERCENT - self::MIN_PREVIEW_PERCENT;
-        return self::MIN_PREVIEW_PERCENT + ($n * ($diff))/self::MAX_PERCENT;
+        $min = self::PREVIEW_BOUND;
+        $max = self::MAX_PERCENT - self::PREVIEW_BOUND;
+        return $min + ($n * ($max-$min))/self::MAX_PERCENT;
     }
 
     #[Computed]
