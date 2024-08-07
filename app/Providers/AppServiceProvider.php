@@ -2,18 +2,11 @@
 
 namespace App\Providers;
 
-use App\Http\Controllers\CompetitionController;
-use App\Http\Controllers\GameController;
-use App\Http\Controllers\PersonController;
-use App\Http\Controllers\PositionController;
-use App\Http\Controllers\SportController;
-use App\Http\Controllers\TeamController;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

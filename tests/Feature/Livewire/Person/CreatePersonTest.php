@@ -3,17 +3,21 @@
 namespace Tests\Feature\Livewire\Person;
 
 use App\Livewire\Person\CreatePerson;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
 use Tests\TestCase;
 
+/**
+ * @internal
+ *
+ * @coversNothing
+ */
 class CreatePersonTest extends TestCase
 {
     /** @test */
-    public function renders_successfully()
+    public function rendersSuccessfully()
     {
         Livewire::test(CreatePerson::class)
-            ->assertStatus(200);
+            ->assertStatus(200)
+        ;
     }
 }

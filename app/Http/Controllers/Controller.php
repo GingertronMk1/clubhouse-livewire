@@ -15,6 +15,7 @@ abstract class Controller
         if (is_string($component) && !class_exists($component)) {
             throw new \BadMethodCallException('Invalid class passed');
         }
+
         return App::call($component);
     }
 }

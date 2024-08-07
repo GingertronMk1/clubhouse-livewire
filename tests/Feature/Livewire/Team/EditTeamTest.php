@@ -3,17 +3,21 @@
 namespace Tests\Feature\Livewire\Team;
 
 use App\Livewire\Team\EditTeam;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
 use Tests\TestCase;
 
+/**
+ * @internal
+ *
+ * @coversNothing
+ */
 class EditTeamTest extends TestCase
 {
     /** @test */
-    public function renders_successfully()
+    public function rendersSuccessfully()
     {
         Livewire::test(EditTeam::class)
-            ->assertStatus(200);
+            ->assertStatus(200)
+        ;
     }
 }
