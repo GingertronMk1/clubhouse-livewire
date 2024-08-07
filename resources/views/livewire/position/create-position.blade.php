@@ -7,7 +7,7 @@
     <input type="range" wire:model.live="form.previewY" min="" max="{{ self::MAX_PERCENT }}" />
 
     ({{ $this->previewXBounded }}, {{ $this->previewYBounded }})
-    <div class="relative min-h-64 bg-green-500 aspect-[10/7]">
+    <div class="relative min-h-64 bg-green-500 aspect-[{{ self::SCALE_FACTOR_X }}/{{ self::SCALE_FACTOR_Y }}]">
         <div
             class="absolute w-4 h-4 bg-red-950"
             style="

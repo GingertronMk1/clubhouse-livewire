@@ -26,7 +26,8 @@ class CreatePosition extends Component
     private function boundValue(int $n): float
     {
         // lambda(n, ((90-10)*n / 100) + 10)
-        return self::MIN_PREVIEW_PERCENT + ($n * (self::MAX_PREVIEW_PERCENT - self::MIN_PREVIEW_PERCENT))/self::MAX_PERCENT;
+        $diff = self::MAX_PREVIEW_PERCENT - self::MIN_PREVIEW_PERCENT;
+        return self::MIN_PREVIEW_PERCENT + ($n * ($diff))/self::MAX_PERCENT;
     }
 
     #[Computed]
