@@ -49,7 +49,7 @@
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
         ],
-        "php-cs-fixer": "./vendor/bin/php-cs-fixer fix"
+        "php-cs-fixer": "./vendor/bin/php-cs-fixer fix --verbose"
     },
     "extra": {
         "laravel": {
