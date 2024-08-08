@@ -13,6 +13,7 @@ use Livewire\Features\SupportConsoleCommands\Commands\MakeLivewireCommand;
 class MakeEntity extends Command
 {
     private readonly Inflector $inflector;
+
     public function __construct()
     {
         parent::__construct();
@@ -39,12 +40,12 @@ class MakeEntity extends Command
     public function handle(): int
     {
         $entityNames = $this->argument('entityName');
-        foreach ($entityNames as $entityName) {
+        foreach ($entityNames as $entityKey => $entityName) {
             $this->call(
                 ModelMakeCommand::class,
                 [
                     'name' => $entityName,
-                    '--all' => true
+                    '--all' => true,
                 ]
             );
 
@@ -59,25 +60,31 @@ class MakeEntity extends Command
                 );
             }
 
-            $this->call(
-                MakeLivewireCommand::class,
-                [
-                    'name' => "CreateEdit{$entityName}",
-                    '--test' => true,
-                ]
-            );
+            foreach (['Create', 'Edit'] as $operation) {
+                $this->call(
+                    MakeLivewireCommand::class,
+                    [
+                        'name' => "{$entityName}/{$operation}{$entityName}",
+                        '--test' => true,
+                    ]
+                );
+            }
 
             $this->call(
                 FormCommand::class,
                 [
-                    'name' => "{$entityName}Form",
+                    'name' => $entityName.'Form',
                 ]
             );
+
+            if ($entityKey !== array_key_last($entityNames)) {
+                $this->output->info('Sleeping for a second to make migrations order right');
+                sleep(1);
+            }
         }
 
         return self::SUCCESS;
     }
-
 
     private function getCrudOperations(): array
     {
