@@ -8,10 +8,6 @@
                 x-text="dob ? (new Date(dob)).toLocaleDateString() : 'No DOB specified'"></td>
             <td>{{ $person->user?->name ?? 'Person not associated with User' }}</td>
             <td><a href="{{ route('person.edit', ['person' => $person]) }}">Edit</a></td>
-            <ul>
-                <li
-                    ></li>
-            </ul>
         </tr>
     @endforeach
     </table>
