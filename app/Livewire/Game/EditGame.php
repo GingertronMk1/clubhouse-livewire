@@ -14,8 +14,9 @@ class EditGame extends Component
     {
         $this->form->setGame($game);
     }
+
     public function render()
     {
-        return view('livewire.game.edit-game') ;
+        return view('livewire.game.edit-game');
     }
 }

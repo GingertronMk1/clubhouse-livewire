@@ -8,6 +8,9 @@ use App\Livewire\Competition\CreateCompetition;
 use App\Livewire\Competition\EditCompetition;
 use App\Models\Competition;
 use Illuminate\View\View;
+use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Foundation\Application;
+use Illuminate\Http\Response;
 
 class CompetitionController extends Controller
 {
@@ -27,7 +30,7 @@ class CompetitionController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Foundation\Application|\Illuminate\Http\Response
+    public function create(): Application|Response|ResponseFactory
     {
         return $this->renderLivewire(CreateCompetition::class);
     }
@@ -53,7 +56,7 @@ class CompetitionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Competition $competition): \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Foundation\Application|\Illuminate\Http\Response
+    public function edit(Competition $competition): Application|Response|ResponseFactory
     {
         return $this->renderLivewire(EditCompetition::class);
     }

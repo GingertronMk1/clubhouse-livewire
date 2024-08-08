@@ -22,11 +22,11 @@ class Competition extends Model
         'name',
         'description',
         'sport_id',
-        'parent_id'
+        'parent_id',
     ];
 
     protected $with = [
-        'parent'
+        'parent',
     ];
 
     public function games(): HasMany

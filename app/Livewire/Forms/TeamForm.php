@@ -3,7 +3,6 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Team;
-use Illuminate\Validation\ValidationException;
 
 class TeamForm extends BaseForm
 {

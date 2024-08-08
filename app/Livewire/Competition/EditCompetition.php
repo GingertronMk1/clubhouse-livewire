@@ -13,8 +13,8 @@ class EditCompetition extends Component
     public function mount(Competition $competition): void
     {
         $this->form->setCompetition($competition);
-
     }
+
     public function save(): void
     {
         $competition = $this->form->update();

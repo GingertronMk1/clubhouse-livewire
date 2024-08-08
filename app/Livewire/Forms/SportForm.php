@@ -19,6 +19,7 @@ class SportForm extends BaseForm
     public function update(): Sport
     {
         $this->sport->update($this->getFillables(Sport::class));
+
         return $this->sport;
     }
 }

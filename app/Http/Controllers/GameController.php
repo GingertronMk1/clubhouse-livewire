@@ -8,6 +8,9 @@ use App\Livewire\Game\CreateGame;
 use App\Livewire\Game\EditGame;
 use App\Models\Game;
 use Illuminate\View\View;
+use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Foundation\Application;
+use Illuminate\Http\Response;
 
 class GameController extends Controller
 {
@@ -27,7 +30,7 @@ class GameController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Foundation\Application|\Illuminate\Http\Response
+    public function create(): Application|Response|ResponseFactory
     {
         return $this->renderLivewire(CreateGame::class);
     }
@@ -53,7 +56,7 @@ class GameController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Game $game): \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Foundation\Application|\Illuminate\Http\Response
+    public function edit(Game $game): Application|Response|ResponseFactory
     {
         return $this->renderLivewire(EditGame::class);
     }

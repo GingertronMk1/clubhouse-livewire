@@ -36,6 +36,7 @@ class PositionForm extends BaseForm
     public function update(): Position
     {
         $this->position->update($this->getFillables(Position::class));
+
         return $this->position;
     }
 }

@@ -22,6 +22,6 @@ class CreateCompetition extends Component
         return view('livewire.competition.create-competition')
             ->with('competitions', Competition::all())
             ->with('sports', Sport::all())
-            ;
+        ;
     }
 }
