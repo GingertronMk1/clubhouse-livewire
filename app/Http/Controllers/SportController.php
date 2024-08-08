@@ -22,7 +22,7 @@ class SportController extends Controller
         return view(
             'sport.index',
             [
-                'sports' => Sport::all(),
+                'sports' => Sport::with('positions')->get(),
             ]
         );
     }

@@ -1,3 +1,13 @@
-<div>
-    <!-- If you do not have a consistent goal in life, you can not live it in a consistent way. - Marcus Aurelius -->
-</div>
+<x-app-layout>
+    <a href="{{ route('sport.create') }}">Create</a>
+    <table class="table-fixed">
+        @foreach($sports as $sport)
+            <tr>
+                <td><a href="{{ route('sport.show', ['sport' => $sport]) }}">{{ $sport->name }}</a></td>
+                <td>{{ $sport->description }}</td>
+                <td><a href="{{ route('sport.position.index', ['sport' => $sport]) }}">{{ count($sport->positions) }} Positions</a></td>
+                <td><a href="{{ route('sport.edit', ['sport' => $sport]) }}">Edit</a></td>
+            </tr>
+        @endforeach
+    </table>
+</x-app-layout>

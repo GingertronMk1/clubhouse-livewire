@@ -16,7 +16,7 @@ class SportPositionController extends Controller
     public function index(Sport $sport)
     {
         return view(
-            'position.show',
+            'position.index',
             [
                 'sport' => $sport->load('positions'),
             ]

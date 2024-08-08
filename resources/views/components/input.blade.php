@@ -16,7 +16,11 @@
 
 <label for="{{ $id }}" class="flex flex-col">
     <span>
-        {{ $label }}
+        @if ($slot->isEmpty())
+            {{ $label }}
+        @else
+            {{ $slot }}
+        @endif
 
         @error($name)
             <span class="error">{{ $message }}</span>
