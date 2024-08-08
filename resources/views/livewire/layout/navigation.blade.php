@@ -18,7 +18,7 @@ new class () extends Component {
     {
         return [
             'Dashboard' => 'dashboard',
-            'People' => 'person.index'
+            'People' => 'person.index',
         ];
     }
 }; ?>

@@ -7,7 +7,6 @@ use App\Models\Game;
 use App\Models\Person;
 use App\Models\Position;
 use App\Models\Sport;
-use App\Models\Team;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -31,7 +30,5 @@ class DatabaseSeeder extends Seeder
             )
             ->create()
         ;
-
-
     }
 }
