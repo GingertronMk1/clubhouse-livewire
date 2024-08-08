@@ -11,7 +11,7 @@ class PersonForm extends Form
     public string $name = '';
     public string $bio = '';
     public string $dob = '';
-    public string $user_id = '';
+    public ?string $user = null;
 
     public function setPerson(Person $person): void
     {
@@ -19,21 +19,21 @@ class PersonForm extends Form
         $this->name = $person->name ?? '';
         $this->bio = $person->bio ?? '';
         $this->dob = $person->dob?->format('Y-m-d') ?? '';
-        $this->user_id = $person->user_id ?? '';
+        $this->user = $person->user;
     }
 
-    public function save(): void
+    public function create(): Person
     {
-        $values = [
-            'name' => $this->name,
-            'bio' => $this->bio,
-            'dob' => strlen($this->dob) > 0 ? $this->dob : null,
-            'user_id' => strlen($this->user_id) ? $this->user_id : null,
-        ];
-        if (isset($this->person)) {
-            $this->person->update($values);
-        } else {
-            Person::create($values);
+        return Person::create($this->all());
+    }
+
+    public function update(): false|Person
+    {
+        $updated = $this->person->update($this->all());
+        if ($updated) {
+            return $this->person;
         }
+
+        return false;
     }
 }

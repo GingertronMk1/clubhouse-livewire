@@ -3,6 +3,7 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Team;
+use Illuminate\Validation\ValidationException;
 use Livewire\Form;
 
 class TeamForm extends Form
@@ -20,22 +21,22 @@ class TeamForm extends Form
         $this->colour = $team->colour;
     }
 
+    /**
+     * @throws ValidationException
+     */
     public function create(): Team
     {
-        return Team::create([
-            'name' => $this->name,
-            'description' => $this->description,
-            'colour' => $this->colour,
-        ]);
+        $this->validate();
+        return Team::create($this->all());
     }
 
+    /**
+     * @throws ValidationException
+     */
     public function update(): false|Team
     {
-        $updated = $this->team->update([
-            'name' => $this->name,
-            'description' => $this->description,
-            'colour' => $this->colour,
-        ]);
+        $this->validate();
+        $updated = $this->team->update($this->all());
 
         if ($updated) {
             return $this->team;

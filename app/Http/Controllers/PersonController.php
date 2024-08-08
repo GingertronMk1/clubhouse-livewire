@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePersonRequest;
-use App\Http\Requests\UpdatePersonRequest;
+use App\Livewire\Person\CreatePerson;
+use App\Livewire\Person\EditPerson;
 use App\Models\Person;
 use Illuminate\View\View;
+use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Foundation\Application;
+use Illuminate\Http\Response;
 
 class PersonController extends Controller
 {
@@ -25,11 +29,9 @@ class PersonController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): View
+    public function create(): Application|Response|ResponseFactory
     {
-        return view(
-            'person.create'
-        );
+        return $this->renderLivewire(CreatePerson::class);
     }
 
     /**
@@ -53,20 +55,10 @@ class PersonController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Person $person): View
+    public function edit(Person $person): Application|Response|ResponseFactory
     {
-        return view(
-            'person.edit',
-            [
-                'person' => $person,
-            ]
-        );
+        return $this->renderLivewire(EditPerson::class);
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdatePersonRequest $request, Person $person): View {}
 
     /**
      * Remove the specified resource from storage.
