@@ -20,23 +20,14 @@ class TeamForm extends BaseForm
         $this->colour = $team->colour;
     }
 
-    /**
-     * @throws ValidationException
-     */
     public function create(): Team
     {
-        $this->validate();
-
-        return Team::create($this->all());
+        return Team::create($this->getFillables(Team::class));
     }
 
-    /**
-     * @throws ValidationException
-     */
     public function update(): Team
     {
-        $this->validate();
-        $this->team->update($this->all());
+        $this->team->update($this->getFillables($this->team));
 
         return $this->team;
     }

@@ -9,6 +9,7 @@ class SportForm extends BaseForm
     public ?Sport $sport = null;
     public string $name = '';
     public string $description = '';
+    public string $colour = '#FFFFFF';
 
     public function create(): Sport
     {

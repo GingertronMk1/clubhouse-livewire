@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTeamRequest;
 use App\Http\Requests\UpdateTeamRequest;
+use App\Livewire\Team\CreateTeam;
 use App\Livewire\Team\EditTeam;
 use App\Models\Team;
 use GuzzleHttp\Promise\Create;
@@ -32,7 +33,7 @@ class TeamController extends Controller
      */
     public function create(): Application|Response|ResponseFactory
     {
-        return $this->renderLivewire(Create::class);
+        return $this->renderLivewire(CreateTeam::class);
     }
 
     /**
