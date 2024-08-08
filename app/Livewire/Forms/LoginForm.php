@@ -8,9 +8,8 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Validate;
-use Livewire\Form;
 
-class LoginForm extends Form
+class LoginForm extends BaseForm
 {
     #[Validate('required|string|email')]
     public string $email = '';

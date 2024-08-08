@@ -1,21 +1,18 @@
 <x-app-layout>
-
     <a href="{{ route('person.create') }}">Create</a>
-    <ul>
+    <table class="table-fixed">
     @foreach($people as $person)
-        <li>{{ $person->name }}
+        <tr>
+            <td>{{ $person->name }}</td>
+            <td x-data="{dob: '{{ $person->dob }}'}"
+                x-text="dob ? (new Date(dob)).toLocaleDateString() : 'No DOB specified'"></td>
+            <td>{{ $person->user?->name ?? 'Person not associated with User' }}</td>
+            <td><a href="{{ route('person.edit', ['person' => $person]) }}">Edit</a></td>
             <ul>
                 <li
-                    x-data="{dob: '{{ $person->dob }}'}"
-                    x-text="dob ? (new Date(dob)).toLocaleDateString() : 'No DOB specified'"></li>
-                <li>{{ $person->user?->name ?? 'Person not associated with User' }}</li>
-                <li><a href="{{ route('person.edit', ['person' => $person]) }}">Edit</a></li>
+                    ></li>
             </ul>
-        </li>
-        @if(!$loop->last)
-            <hr>
-            @endif
+        </tr>
     @endforeach
-    </ul>
-    <!-- I have not failed. I've just found 10,000 ways that won't work. - Thomas Edison -->
+    </table>
 </x-app-layout>

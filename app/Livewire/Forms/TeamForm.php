@@ -4,9 +4,8 @@ namespace App\Livewire\Forms;
 
 use App\Models\Team;
 use Illuminate\Validation\ValidationException;
-use Livewire\Form;
 
-class TeamForm extends Form
+class TeamForm extends BaseForm
 {
     public ?Team $team = null;
     public string $name = '';

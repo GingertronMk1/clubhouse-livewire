@@ -2,6 +2,4 @@
 
 namespace App\Livewire\Forms;
 
-use Livewire\Form;
-
-class CompetitionForm extends Form {}
+class CompetitionForm extends BaseForm {}
