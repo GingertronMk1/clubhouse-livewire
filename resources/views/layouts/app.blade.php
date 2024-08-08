@@ -28,9 +28,14 @@
             @endif
 
             <!-- Page Content -->
-            <main class="flex flex-col">
-                {{ $slot }}
+            <main class="flex flex-col items-center">
+                <div class="flex flex-col max-w-screen-xl w-11/12">
+                    {{ $slot }}
+                </div>
             </main>
+            <footer class="p-4">
+
+            </footer>
         </div>
     </body>
 </html>

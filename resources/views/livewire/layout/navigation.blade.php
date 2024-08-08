@@ -18,7 +18,11 @@ new class () extends Component {
     {
         return [
             'Dashboard' => 'dashboard',
+            'Competitions' => 'competition.index',
+            'Games' => 'game.index',
             'People' => 'person.index',
+            'Sports' => 'sport.index',
+            'Teams' => 'team.index',
         ];
     }
 }; ?>

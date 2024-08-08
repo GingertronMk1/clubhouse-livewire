@@ -11,7 +11,7 @@ class CreateSport extends Component
 
     public function save()
     {
-        $sport = $this->form->save();
+        $sport = $this->form->create();
         $this->redirectRoute('sport.position.create', ['sport' => $sport]);
     }
 

@@ -17,7 +17,21 @@ class Game extends Model
     /**
      * @var array<string>
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'name',
+        'description',
+        'summary',
+        'start',
+        'team_1_id',
+        'team_2_id',
+        'competition_id',
+    ];
+
+    protected $with = [
+        'team1',
+        'team2',
+        'competition',
+    ];
 
     public function team1(): BelongsTo
     {
@@ -27,5 +41,10 @@ class Game extends Model
     public function team2(): BelongsTo
     {
         return $this->belongsTo(Team::class, 'team_2_id');
+    }
+
+    public function competition(): BelongsTo
+    {
+        return $this->belongsTo(Competition::class);
     }
 }

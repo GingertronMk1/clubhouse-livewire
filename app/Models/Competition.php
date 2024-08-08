@@ -18,7 +18,16 @@ class Competition extends Model
     /**
      * @var array<string>
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'name',
+        'description',
+        'sport_id',
+        'parent_id',
+    ];
+
+    protected $with = [
+        'parent',
+    ];
 
     public function games(): HasMany
     {
