@@ -27,8 +27,6 @@ class DatabaseSeeder extends Seeder
                 Competition::factory(10)
                     ->has(
                         Game::factory(10)
-                            ->for(Team::factory(), 'team1')
-                            ->for(Team::factory(), 'team2')
                     )
             )
             ->create()
