@@ -3,9 +3,8 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Sport;
-use Livewire\Form;
 
-class PositionForm extends Form
+class PositionForm extends BaseForm
 {
     public string $name = '';
     public string $description = '';

@@ -2,6 +2,4 @@
 
 namespace App\Livewire\Forms;
 
-use Livewire\Form;
-
-class GameForm extends Form {}
+class GameForm extends BaseForm {}

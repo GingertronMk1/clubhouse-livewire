@@ -3,16 +3,14 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Person;
-use App\Models\User;
-use Livewire\Form;
 
-class PersonForm extends Form
+class PersonForm extends BaseForm
 {
-    private ?Person $person;
+    public ?Person $person = null;
     public string $name = '';
     public string $bio = '';
-    public string $dob = '';
-    public ?User $user = null;
+    public ?string $dob = null;
+    public ?string $user_id = null;
 
     public function setPerson(Person $person): void
     {
@@ -20,17 +18,17 @@ class PersonForm extends Form
         $this->name = $person->name ?? '';
         $this->bio = $person->bio ?? '';
         $this->dob = $person->dob?->format('Y-m-d') ?? '';
-        $this->user = $person->user;
+        $this->user_id = $person->user?->id ?? null;
     }
 
     public function create(): Person
     {
-        return Person::create($this->all());
+        return Person::create($this->getFillables(Person::class));
     }
 
     public function update(): Person
     {
-        $this->person->update($this->all());
+        $this->person->update($this->getFillables($this->person));
 
         return $this->person;
     }
