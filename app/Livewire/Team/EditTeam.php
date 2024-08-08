@@ -4,7 +4,6 @@ namespace App\Livewire\Team;
 
 use App\Livewire\Forms\TeamForm;
 use App\Models\Team;
-use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Illuminate\Contracts\View\View;
 
@@ -24,7 +23,6 @@ class EditTeam extends Component
         $this->redirectRoute('team.edit', $team);
     }
 
-    #[Layout('layouts.app')]
     public function render(): View
     {
         return view('livewire.team.edit-team');

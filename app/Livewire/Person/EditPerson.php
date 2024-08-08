@@ -17,6 +17,12 @@ class EditPerson extends Component
         $this->form->setPerson($person);
     }
 
+    public function save(): void
+    {
+        $person = $this->form->update();
+        $this->redirectRoute('person.edit', ['person' => $person]);
+    }
+
     public function render(): View
     {
         return view('livewire.person.edit-person')

@@ -3,6 +3,7 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Person;
+use App\Models\User;
 use Livewire\Form;
 
 class PersonForm extends Form
@@ -11,7 +12,7 @@ class PersonForm extends Form
     public string $name = '';
     public string $bio = '';
     public string $dob = '';
-    public ?string $user = null;
+    public ?User $user = null;
 
     public function setPerson(Person $person): void
     {
@@ -27,13 +28,10 @@ class PersonForm extends Form
         return Person::create($this->all());
     }
 
-    public function update(): false|Person
+    public function update(): Person
     {
-        $updated = $this->person->update($this->all());
-        if ($updated) {
-            return $this->person;
-        }
+        $this->person->update($this->all());
 
-        return false;
+        return $this->person;
     }
 }

@@ -34,15 +34,11 @@ class TeamForm extends Form
     /**
      * @throws ValidationException
      */
-    public function update(): false|Team
+    public function update(): Team
     {
         $this->validate();
-        $updated = $this->team->update($this->all());
+        $this->team->update($this->all());
 
-        if ($updated) {
-            return $this->team;
-        }
-
-        return false;
+        return $this->team;
     }
 }
