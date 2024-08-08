@@ -17,7 +17,7 @@ class PersonForm extends BaseForm
         $this->person = $person;
         $this->name = $person->name ?? '';
         $this->bio = $person->bio ?? '';
-        $this->dob = $person->dob?->format('Y-m-d') ?? '';
+        $this->dob = $person->dob?->format('Y-m-d') ?? null;
         $this->user_id = $person->user?->id ?? null;
     }
 
