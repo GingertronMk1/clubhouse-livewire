@@ -3,7 +3,7 @@
     <table class="table-fixed">
     @foreach($people as $person)
         <tr>
-            <td>{{ $person->name }}</td>
+            <td><a href="{{ route('person.show', ['person' => $person]) }}">{{ $person->name }}</a></td>
             <td x-data="{dob: '{{ $person->dob }}'}"
                 x-text="dob ? (new Date(dob)).toLocaleDateString() : 'No DOB specified'"></td>
             <td>{{ $person->user?->name ?? 'Person not associated with User' }}</td>
