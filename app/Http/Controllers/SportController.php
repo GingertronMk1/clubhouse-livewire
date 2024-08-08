@@ -30,7 +30,7 @@ class SportController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): ResponseFactory|Application|Response
+    public function create(): Application|Response|ResponseFactory
     {
         return $this->renderLivewire(CreateSport::class);
     }
@@ -56,7 +56,7 @@ class SportController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Sport $sport): ResponseFactory|Application|Response
+    public function edit(Sport $sport): Application|Response|ResponseFactory
     {
         return $this->renderLivewire(EditSport::class);
     }

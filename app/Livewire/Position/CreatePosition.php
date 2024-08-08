@@ -24,7 +24,8 @@ class CreatePosition extends Component
     {
         $min = self::PREVIEW_BOUND;
         $max = self::MAX_PERCENT - self::PREVIEW_BOUND;
-        return $min + ($n * ($max-$min))/self::MAX_PERCENT;
+
+        return $min + ($n * ($max - $min)) / self::MAX_PERCENT;
     }
 
     #[Computed]
@@ -43,6 +44,6 @@ class CreatePosition extends Component
     {
         return view('livewire.position.create-position')
             ->with('sports', Sport::all())
-            ;
+        ;
     }
 }

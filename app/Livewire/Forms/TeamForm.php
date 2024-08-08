@@ -27,6 +27,7 @@ class TeamForm extends Form
     public function create(): Team
     {
         $this->validate();
+
         return Team::create($this->all());
     }
 

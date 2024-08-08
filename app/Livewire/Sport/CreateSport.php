@@ -8,7 +8,9 @@ use Livewire\Component;
 class CreateSport extends Component
 {
     public SportForm $form;
-    public function save() {
+
+    public function save()
+    {
         $sport = $this->form->save();
         $this->redirectRoute('sport.position.create', ['sport' => $sport]);
     }

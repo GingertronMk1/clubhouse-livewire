@@ -18,7 +18,7 @@ class SportPositionController extends Controller
         return view(
             'position.show',
             [
-                'sport' => $sport->load('positions')
+                'sport' => $sport->load('positions'),
             ]
         );
     }
@@ -34,18 +34,12 @@ class SportPositionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Sport $sport)
-    {
-        //
-    }
+    public function store(Request $request, Sport $sport) {}
 
     /**
      * Display the specified resource.
      */
-    public function show(Sport $sport, Position $position)
-    {
-        //
-    }
+    public function show(Sport $sport, Position $position) {}
 
     /**
      * Show the form for editing the specified resource.
@@ -58,16 +52,10 @@ class SportPositionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Sport $sport, Position $position)
-    {
-        //
-    }
+    public function update(Request $request, Sport $sport, Position $position) {}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Sport $sport, Position $position)
-    {
-        //
-    }
+    public function destroy(Sport $sport, Position $position) {}
 }

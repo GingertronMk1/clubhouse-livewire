@@ -5,7 +5,8 @@ namespace App\Livewire\Forms;
 use App\Models\Sport;
 use Livewire\Form;
 
-class SportForm extends Form {
+class SportForm extends Form
+{
     public ?Sport $sport = null;
     public string $name = '';
     public string $description = '';
@@ -21,6 +22,7 @@ class SportForm extends Form {
         } else {
             $this->sport = Sport::create($values);
         }
+
         return $this->sport;
     }
 }

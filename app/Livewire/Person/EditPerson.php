@@ -21,6 +21,6 @@ class EditPerson extends Component
     {
         return view('livewire.person.edit-person')
             ->with('users', User::all())
-            ;
+        ;
     }
 }
