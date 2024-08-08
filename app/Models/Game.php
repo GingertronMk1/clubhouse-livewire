@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasVersion7Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Game extends Model
@@ -17,4 +18,14 @@ class Game extends Model
      * @var array<string>
      */
     protected $fillable = [];
+
+    public function team1(): BelongsTo
+    {
+        return $this->belongsTo(Team::class, 'team_1_id');
+    }
+
+    public function team2(): BelongsTo
+    {
+        return $this->belongsTo(Team::class, 'team_2_id');
+    }
 }
